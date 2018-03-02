@@ -1,5 +1,5 @@
 
-import orm = require("../config/orm.js");
+var orm = require("../config/orm.js");
 
 var burger = {
   selectAll: function(callback){
@@ -22,4 +22,5 @@ var burger = {
   }
 }
 
-modules.exports = burger;
+module.exports = burger;
+

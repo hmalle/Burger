@@ -12,7 +12,7 @@ function qnMarks(num){
 function objToSql(ob){
   var arr=[];
   for(var key in ob){
-    if(Object.hasOwnProperty.call(ob,key){
+    if(Object.hasOwnProperty.call(ob,key)){
       if(typeof val ==="string" && value.indexOf(" ") >=0){
         value = "'"+value+"'";
       }
@@ -25,10 +25,11 @@ function objToSql(ob){
 var orm = {
   selectAll: function(table ,callback){ 
     var dbQuery = "SELECT * FROM "+table+";";
-    console.log("query str" + dbQuery);
+    console.log("mysql_query_str: " + dbQuery);
     connection.query(dbQuery ,function(error,result){
       if(error){
-        throw error;
+        console.error("Error queying the database " +error.stack);
+        return;
       }
       callback(result);
     });
@@ -36,7 +37,7 @@ var orm = {
 
   insertOne: function(table, cols, vals, callback){
     var dbQuery = "INSERT INTO "+ table+ "("+cols.toString()+") VALUES("+qnMarks(vals.length)+")";
-    console.log("query str" + dbQuery);
+    console.log("mysql_query_str: " + dbQuery);
     connection.query(dbQuery,vals,function(error,result){
       if(error){
         throw error;
@@ -47,8 +48,8 @@ var orm = {
 
   updateOne: function(table,objColVals, condition, callback){
     var dbQuery = "UPDATE "+table+" SET "+objToSql(objColVals)+" WHERE "+condition;
-    console.log("query str" + dbQuery);
-    connection.query(dbQuery,["id":req.body.id] ,function(error,result){ 
+    console.log("mysql_query_str: " + dbQuery);
+    connection.query(dbQuery,{ id:req.body.id} ,function(error,result){ 
       if(error){ 
         throw error;
       }
