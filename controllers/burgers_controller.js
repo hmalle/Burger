@@ -4,7 +4,7 @@ var router = express.Router();
 
 var burger = ("../models/burger.js");
 
-router.get("/" function(req,res){
+router.get("/", function(req,res){
   burger.selectAll(function(data){
     var hbsObject = {
       burger: data

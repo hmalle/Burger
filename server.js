@@ -12,7 +12,8 @@ app.use(bodyParser.json({type:"application/vnd.api+json"}));
 
 app.use(express.static("./public"));
 
-require("./routes/*")(app);
+var routes = require("./controllers/burgers_controller.js")
+app.use("/", routes);
 
 app.listen(PORT, function() {
   console.log("Listening on PORT " + PORT);
