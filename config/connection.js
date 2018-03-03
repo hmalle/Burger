@@ -27,7 +27,7 @@ if(process.env.JAWSDB_URL) {
     password:"",
     database:"burgers_db"
   });
-};
+}
 
 connection.connect();
 
