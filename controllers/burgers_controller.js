@@ -13,12 +13,6 @@ router.get("/", function(req,res){
   });
 });
 
-router.post("/api/burgers", function(req,res){
-  burger.insertOne(["burger_name"],[req.body.burger_name], function(result){
-    res.json({id:result.insertedId });
-  });
-});
-
 router.put("/api/burgers/:id", function(req,res){
   burger.updateOne({ devoured: req.body.devoured}, function(result){
     if(result.changedRows == 0){
@@ -26,6 +20,12 @@ router.put("/api/burgers/:id", function(req,res){
     }else{
       res.status(200).end();
     }
+  });
+});
+
+router.post("/api/burgers", function(req,res){
+  burger.insertOne(["burger_name"],[req.body.burger_name], function(result){
+    res.json({id:result.insertedId });
   });
 });
 
