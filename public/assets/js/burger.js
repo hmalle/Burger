@@ -1,6 +1,6 @@
 
 $(function(){
-  $("#devour").on("click",function(event){
+  $(document).on("click","#devour",function(event){
     var id= $(this).data("id");
     var newDevour = $(this).data("devoured");
     var newDevouredState = {
