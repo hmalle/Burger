@@ -3,11 +3,9 @@ $(function(){
   $("#devour").on("click",function(event){
     var id= $(this).data("id");
     var newDevour = $(this).data("devoured");
-    console.log("A burger being devoured");
     var newDevouredState = {
       devoured: true
     };
-    alert("Another burger devoured");
     //send that put request
     $.ajax("/api/burgers/" +id, {
       type: "PUT",
@@ -22,6 +20,7 @@ $(function(){
     var newBurger = {
       burger_name: $("#burgerName").val().trim()
     };
+    $("#burgerName").val("");
     //that post request
     $.ajax("/api/burgers/",{
       type: "POST",
