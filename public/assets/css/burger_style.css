@@ -1,0 +1,37 @@
+body{
+  background: linear-gradient(to right, red,yellow);
+}
+
+h1{
+  color: #ffffff;
+}
+
+#eaten,#not-eaten{
+
+}
+
+#burger-div{
+  background: #cccbbb;
+  height: 60px;
+  margin-bottom: 5px;
+  border : 2px solid black;
+  border-radius: 5px;
+  width: 80%;
+  float:left;
+}
+
+#button-div{
+  float:right;
+}
+/*
+.container{
+  overflow: auto;
+}
+
+#unEaten{
+  float:left;
+}
+#eaten{
+  float:right;
+}
+*/

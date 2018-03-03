@@ -1,20 +1,18 @@
 
 <div class="container">
-  <div class="jumbotron bg-dark">
+  <div class="jumbotron">
     <img src="/assets/img/burger.jpeg">
-    <h1 class="float-right"> Burgers</h1>
+    <h1> Devour The Burgers </h1>
   </div>
 
   <div class="row">  
-    <div class="col-md-6 ">
-      <h3>Burgers ready for you</h3>
+    <div class="col-md-5 float-left">
+      <h5>Burgers ready for you</h5>
       <div id="not-eaten">
         {{#each burger}}
           {{#unless devoured}}
-            <div id="burger-div">
-              <p>{{id}}: {{burger_name}}</p>
-            </div>
-            <div id="button-div">
+            {{burger_name}}
+            <div class="form-group"{{this.id}}.{{this.burger_name}} >
               <button id="devour" class="btn" type="button">Devour</button>
             </div>
           {{/unless}}
@@ -23,12 +21,12 @@
     </div>
 
     <div class="col-md-6">
-      <h3>Burgers Eaten</h3>
+      <h5>Burgers Eaten</h5>
       <div id="eaten" >
         {{#each burger}}
           {{#if devoured}}
-            <div id="burger-div">
-              <p>{{id}}: {{burger_name}}</p>
+            <div>
+              {{burger_name}}
             </div>
           {{/if}}
         {{/each}}
@@ -39,10 +37,10 @@
   <hr>
 
   <div class="row">
-    <div class="col-md-4 col-md-offset-5">
+    <div class="col-md-4 col-md-offset-4">
       <form class="create-form">
         <div class="form-group">
-          <textarea class="form-control" id="burgerName" name="burger_name"></textarea>
+          <input type="text" id="burgerName" name="name">
         </div>
         <button type="submit">Add Burger</button>
       </form>

@@ -1,11 +1,11 @@
 
 $(function(){
-  $(".devour").on("click",function(event){
+  $("#devour").on("click",function(event){
     var id= $(this).data("id");
     var newDevour = $(this).data("newDevour");
-
+    console.log("A burger being devoured");
     var newDevouredState = {
-      devevour: newDevour
+      devour: newDevour
     };
     //send that put request
     $.ajax("api/burgers/" +id, {
@@ -22,7 +22,8 @@ $(function(){
     var newBurger = {
       burger_name: $("#burgerName").val().trim();
     };
-
+    console.log(JSON.stringifry(burger_name));
+    //that post request
     $.ajax("/api/burgers",{
       type: "POST",
       data: newBurger
